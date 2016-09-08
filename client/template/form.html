@@ -1,0 +1,62 @@
+<h3>Input</h3>
+<form ng-submit = "submit()">
+<ul ng-model = "employees">
+  <li ng-repeat = "employee in employees">
+    <table>
+      <tr>
+        <th>姓名</th>
+        <th>基本工资</th>
+        <th>绩效评分</th>
+        <th>公积金</th>
+      </tr>
+      <tr>
+        <td><input type = "text" ng-model="employee.value.name"></td>
+        <td><input type = "number" ng-model="employee.value.salaryBase"></td>
+        <td><input type = "text" ng-model = "employee.value.score"></td>
+        <td><input type = "number" min="0" max="10" step="0.001" ng-model = "employee.value.houseAccRate"></td>
+      </tr>
+  </table>
+  </li>
+</ul>
+<button ng-click = "addNewRow()" type="button">＋</button>
+<button type="submit">提交</button>
+<input type="file" id="file">
+</form>
+<h3>Out Put</h3>
+<ul>
+  <li ng-repeat = "result in results">
+  <table>
+    <tr>
+      <th>姓名</th>
+      <th>岗位工资</th>
+      <th>绩效工资</th>
+      <th>五险一金（个人）</th>
+      <th>五险一金（单位）</th>
+      <th>税前收入</th>
+      <th>扣税</th>
+      <th>税后收入</th>
+    </tr>
+    <tr>
+      <td>{{result.name}}</td>
+      <td>{{result.baseSalary}}</td>
+      <td>{{result.bonus}}</td>
+      <td>{{result.pInsurancett}}</td>
+      <td>{{result.cInsurancett}}</td>
+      <td>{{result.beforeTax}}</td>
+      <td>{{result.pTax}}</td>
+      <td>{{result.afterTax}}</td>
+    </tr>
+    <table>
+    <tr>
+      <td>个人</td>
+      <td>公司</td>
+    </tr>
+    <tr>
+
+      <td>{{result.pInsurance}}</td>
+      <td>{{result.cInsurance}}</td>
+
+    </tr></table>
+  </table>
+</li>
+</ul>
